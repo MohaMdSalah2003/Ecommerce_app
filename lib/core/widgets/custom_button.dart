@@ -1,5 +1,5 @@
 import 'package:ecommerce_app/core/utils/constants.dart';
-import 'package:ecommerce_app/core/utils/style.dart';
+import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
@@ -31,7 +31,7 @@ class CustomButton extends StatelessWidget {
               : Text(
                   'Get Started',
                   textAlign: TextAlign.center,
-                  style: Style.textstyle18.copyWith(
+                  style: Styles.text17Medium.copyWith(
                     color: const Color(0xFFFFF9FF),
                     height: 0.06,
                   ),

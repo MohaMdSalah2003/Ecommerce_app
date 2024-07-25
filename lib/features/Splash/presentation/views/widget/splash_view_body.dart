@@ -1,6 +1,8 @@
+import 'package:ecommerce_app/features/Auth/presentation/views/forget_password_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -12,9 +14,12 @@ class SplashViewBody extends StatefulWidget {
 class _SplashViewBodyState extends State<SplashViewBody> {
   @override
   void initState() {
-    // Future.delayed(const Duration(seconds: 5), () {
-    //   Get.to(() => const OnbordingView(), transition: Transition.rightToLeft);
-    // });
+    Future.delayed(const Duration(seconds: 4), () {
+      Get.to(
+        () => const ForgotPasswordView(),
+        transition: Transition.rightToLeft,
+      );
+    });
     super.initState();
   }
 
