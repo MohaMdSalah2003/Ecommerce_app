@@ -29,7 +29,7 @@ class CustomButton extends StatelessWidget {
           child: isLoading
               ? const CircularProgressIndicator()
               : Text(
-                  'Get Started',
+                  title,
                   textAlign: TextAlign.center,
                   style: Styles.text17Medium.copyWith(
                     color: const Color(0xFFFFF9FF),

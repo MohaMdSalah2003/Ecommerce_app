@@ -33,7 +33,7 @@ class CustomForgetPasswordStepsItem extends StatelessWidget {
         widget,
         const SizedBox(height: 50),
         const Text(
-            'Please write your email to receive a confirmation code to set a/n new password.'),
+            '           Please write your email to receive a       \n confirmation code to set a new password.'),
         const SizedBox(height: 15),
         CustomButton(
           title: buttonTitle,
