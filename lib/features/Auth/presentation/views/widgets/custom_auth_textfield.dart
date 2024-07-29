@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
 
-class CustomTextField extends StatelessWidget {
-  const CustomTextField({
+class CustomAuthTextField extends StatelessWidget {
+  const CustomAuthTextField({
     required this.hinttext,
     required this.labeltext,
     super.key,

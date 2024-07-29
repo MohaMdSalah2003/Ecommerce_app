@@ -1,6 +1,8 @@
 
 import 'package:ecommerce_app/core/utils/styles.dart';
+import 'package:ecommerce_app/features/Home/presentation/view/home_view.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 
 class GenderViewBody extends StatelessWidget {
@@ -19,7 +21,7 @@ class GenderViewBody extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10)),
-            child:const Padding(
+            child: Padding(
               padding:  EdgeInsets.only(left: 15,right: 15,top: 25,bottom:20 ),
               child: Column(
                 children: [
@@ -38,7 +40,11 @@ class GenderViewBody extends StatelessWidget {
                 SizedBox(
                   height: 16,
                 ),
-                Center(child: Text("Skip",style: Styles.text17Medium,))
+                GestureDetector(
+                  onTap: (){
+                    Get.to(()=>HomeView());
+                  },
+                  child: Center(child: Text("Skip",style: Styles.text17Medium,)))
 
               ],),
             ),
