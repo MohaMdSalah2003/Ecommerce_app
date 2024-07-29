@@ -13,6 +13,7 @@ class CustomEmailTextField extends StatelessWidget {
       SizedBox(
         width: double.infinity,
         child: Text(
+          
           'Email Address',
           style: Styles.text13Regular.copyWith(
             color: const Color(0xFF8F959E),
