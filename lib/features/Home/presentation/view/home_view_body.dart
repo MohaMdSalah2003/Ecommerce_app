@@ -89,7 +89,7 @@ class HomeViewBody extends StatelessWidget {
               itemCount: 10,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                mainAxisSpacing: 10,
+                mainAxisSpacing: 65,
                 crossAxisSpacing: 10,
               ),
               itemBuilder: (context, index) {
