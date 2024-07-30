@@ -11,53 +11,58 @@ class CustomGridViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 160,
-      height: 260,
+      height: 257,
       child: Stack(
+        clipBehavior: Clip.none,
         children: [
-          Positioned(
+          Container(
+            width: 160,
+            height: 203,
+            decoration: ShapeDecoration(
+              image: const DecorationImage(
+                fit: BoxFit.cover,
+                image: AssetImage("assets/images/Rectangle 568.png"),
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
+            ),
+          ),
+          const Positioned(
             left: 0,
-            top: 0,
-            child: Container(
-              width: 160,
-              height: 180,
-              decoration: ShapeDecoration(
-                image: const DecorationImage(
-                  image: AssetImage('assets/images/Rectangle 568.png'),
-                  fit: BoxFit.fill,
-                ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
+            top: 160,
+            child: SizedBox(
+              width: 117,
+              child: Text(
+                maxLines: 2,
+                'Nike Sportswear Club\n Fleece',
+                style: TextStyle(
+                  color: Color(0xFF1D1E20),
+                  fontSize: 11,
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.w500,
                 ),
               ),
             ),
           ),
-          Positioned(
-            right: 50,
-            top: 5,
-            child: Container(
-              clipBehavior: Clip.antiAlias,
-              decoration: const BoxDecoration(),
-              child: SvgPicture.asset('assets/images/Heart.svg'),
-            ),
-          ),
-          Positioned(
-            bottom: 25,
-            child: Text(
-              'Nike Sportswear Club Fleece',
-              style: Styles.text11Medium.copyWith(
-                fontFamily: 'Inter',
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: 0,
+          const Positioned(
+            left: 0,
+            top: 200,
             child: Text(
               '\$99',
-              style: Styles.text13Medium.copyWith(
+              style: TextStyle(
+                color: Color(0xFF1D1E20),
+                fontSize: 13,
                 fontFamily: 'Inter',
-                // height: 0.08,
+                fontWeight: FontWeight.w600,
+                height: 0.08,
               ),
             ),
+          ),
+          Positioned(
+            left: 100,
+            top: -10,
+            child: SvgPicture.asset('assets/images/Heart.svg'),
           ),
         ],
       ),
