@@ -40,9 +40,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
                 duration: const Duration(seconds: 3),
               )
               .then()
-              .shake(
-                hz: 3,
-              ),
+              .shake(),
         ],
       ),
     );

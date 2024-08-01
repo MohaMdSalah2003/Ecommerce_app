@@ -1,8 +1,8 @@
 import 'package:ecommerce_app/core/utils/constants.dart';
 import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:ecommerce_app/core/widgets/custom_text_field.dart';
-import 'package:ecommerce_app/features/Home/presentation/view/custom_brand_item.dart';
-import 'package:ecommerce_app/features/Home/presentation/view/custom_gridview_item.dart';
+import 'package:ecommerce_app/features/Home/presentation/view/widget/custom_brand_item.dart';
+import 'package:ecommerce_app/features/Home/presentation/view/widget/custom_gridview_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 

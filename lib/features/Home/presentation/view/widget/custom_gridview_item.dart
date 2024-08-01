@@ -1,4 +1,3 @@
-import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -20,7 +19,7 @@ class CustomGridViewItem extends StatelessWidget {
             height: 203,
             decoration: ShapeDecoration(
               image: const DecorationImage(
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
                 image: AssetImage("assets/images/Rectangle 568.png"),
               ),
               shape: RoundedRectangleBorder(
@@ -60,8 +59,8 @@ class CustomGridViewItem extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: 100,
-            top: -10,
+            right: 10,
+            top: 20,
             child: SvgPicture.asset('assets/images/Heart.svg'),
           ),
         ],
