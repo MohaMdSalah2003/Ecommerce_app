@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:ecommerce_app/core/widgets/custom_button.dart';
+import 'package:ecommerce_app/core/widgets/custom_textSwitch.dart';
 import 'package:ecommerce_app/core/widgets/custom_text_field.dart';
 import 'package:ecommerce_app/features/Auth/presentation/views/forget_password_view.dart';
 import 'package:ecommerce_app/features/Auth/presentation/views/gender_view.dart';
@@ -93,21 +94,8 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             ),
             Padding(
               padding: const EdgeInsetsDirectional.symmetric(horizontal: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    "Remember Me",
-                    style: Styles.text13Medium,
-                  ),
-                  AdvancedSwitch(
-                    activeColor: const Color(0xff9775FA),
-                    width: 40,
-                    height: 25,
-                    controller: _controller,
-                  ),
-                ],
-              ),
+              child: CustomTextSwitch(
+                  text: "Remember Me", controller: _controller),
             ),
             const SizedBox(
               height: 20,
