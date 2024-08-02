@@ -8,7 +8,6 @@ import 'package:flutter_svg/svg.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Padding(
