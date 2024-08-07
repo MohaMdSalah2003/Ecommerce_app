@@ -1,5 +1,3 @@
-import 'package:ecommerce_app/features/Auth/presentation/views/widgets/gender_view_body.dart';
-import 'package:ecommerce_app/features/Cart/presentation/views/cart_view.dart';
 import 'package:ecommerce_app/features/Home/presentation/view/home_view.dart';
 import 'package:flutter/material.dart';
 
