@@ -29,7 +29,9 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cupertino_icons: ^1.0.6
+  dartz: ^0.10.1
   dio: ^5.5.0+1
+  firebase_auth: ^5.1.4
   firebase_core: ^3.3.0
   flashy_tab_bar2: ^0.0.10
   flutter:
@@ -37,8 +39,10 @@ dependencies:
   flutter_advanced_switch: ^3.1.0
   flutter_animate: ^4.5.0
   flutter_bloc: ^8.1.6
+  flutter_facebook_auth: ^7.0.1
   flutter_svg: ^2.0.10+1
   get: ^4.6.6
+  google_sign_in: ^6.2.1
   intl: ^0.19.0
 
 dev_dependencies:
