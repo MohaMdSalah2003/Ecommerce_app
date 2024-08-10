@@ -49,38 +49,51 @@ class AuthRepoImp extends AuthRepo {
   }
 
   @override
-  Future<void> signInWithGoogle() async {
-    Future<UserCredential> signInWithGoogle() async {
-      // Trigger the authentication flow
-      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+  Future<Either<String, void>> signInWithGoogle() async {
+    try {
+      Future<UserCredential> signInWithGoogle() async {
+        // Trigger the authentication flow
+        final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
-      // Obtain the auth details from the request
-      final GoogleSignInAuthentication? googleAuth =
-          await googleUser?.authentication;
+        // Obtain the auth details from the request
+        final GoogleSignInAuthentication? googleAuth =
+            await googleUser?.authentication;
 
-      // Create a new credential
-      final credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth?.accessToken,
-        idToken: googleAuth?.idToken,
-      );
+        // Create a new credential
+        final credential = GoogleAuthProvider.credential(
+          accessToken: googleAuth?.accessToken,
+          idToken: googleAuth?.idToken,
+        );
 
-      // Once signed in, return the UserCredential
-      return await FirebaseAuth.instance.signInWithCredential(credential);
+        // Once signed in, return the UserCredential
+        return await FirebaseAuth.instance.signInWithCredential(credential);
+      }
+
+      return right(null);
+    } on Exception catch (e) {
+      return left(e.toString());
     }
   }
 
   @override
-  Future<void> signInWithFacebook() async {
-    Future<UserCredential> signInWithFacebook() async {
-      // Trigger the sign-in flow
-      final LoginResult loginResult = await FacebookAuth.instance.login();
+  Future<Either<String, void>> signInWithFacebook() async {
+    try {
+      Future<UserCredential> signInWithFacebook() async {
+        // Trigger the sign-in flow
+        final LoginResult loginResult = await FacebookAuth.instance.login();
 
-      // Create a credential from the access token
-      final OAuthCredential facebookAuthCredential =
-          FacebookAuthProvider.credential('loginResult.accessToken.token');
+        // Create a credential from the access token
+        final OAuthCredential facebookAuthCredential =
+            FacebookAuthProvider.credential('loginResult.accessToken.token');
 
-      // Once signed in, return the UserCredential
-      return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
+        // Once signed in, return the UserCredential
+        return FirebaseAuth.instance
+            .signInWithCredential(facebookAuthCredential);
+      }
+
+      return right(null);
+    } on Exception catch (e) {
+      return left(e.toString());
     }
   }
 }

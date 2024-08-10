@@ -1,7 +1,11 @@
+import 'package:ecommerce_app/core/utils/bloc_obser.dart';
+import 'package:ecommerce_app/features/Auth/Data/repo/auth_repo_imp.dart';
+import 'package:ecommerce_app/features/Auth/presentation/manager/cubit/auth_cubit_cubit.dart';
 import 'package:ecommerce_app/features/Splash/presentation/views/splash_view.dart';
 import 'package:ecommerce_app/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 void main() async {
@@ -9,7 +13,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
+  Bloc.observer = SimpleObserv();
   runApp(const Ecommerce());
 }
 
@@ -18,12 +22,19 @@ class Ecommerce extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      theme: ThemeData(
-        brightness: Brightness.light,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => AuthCubitCubit(AuthRepoImp()),
+        ),
+      ],
+      child: GetMaterialApp(
+        theme: ThemeData(
+          brightness: Brightness.light,
+        ),
+        debugShowCheckedModeBanner: false,
+        home: const SplashView(),
       ),
-      debugShowCheckedModeBanner: false,
-      home: const SplashView(),
     );
   }
 }

@@ -10,16 +10,21 @@ class CustomTextField extends StatelessWidget {
     this.labelText,
     this.fillColor,
     this.maxLines,
+    this.controller,
   });
   final IconData? icon;
   final String hintText;
   final String? labelText;
   final Color? fillColor;
   final int? maxLines;
-
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: (value) {
+        return 'Plase Enter the data';
+      },
+      controller: controller,
       maxLines: maxLines,
       decoration: InputDecoration(
         alignLabelWithHint: true,
