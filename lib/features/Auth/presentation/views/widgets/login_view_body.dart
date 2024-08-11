@@ -2,6 +2,7 @@ import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:ecommerce_app/core/widgets/custom_textSwitch.dart';
 import 'package:ecommerce_app/core/widgets/custom_text_field.dart';
 import 'package:ecommerce_app/features/Auth/presentation/views/forget_password_view.dart';
+import 'package:ecommerce_app/features/Auth/presentation/views/gender_view.dart';
 import 'package:ecommerce_app/features/Auth/presentation/views/signup_view.dart';
 import 'package:ecommerce_app/features/Auth/presentation/views/widgets/FaceOrGoogleButton.dart';
 import 'package:ecommerce_app/features/Auth/presentation/views/widgets/custom_blocconsumer_login.dart';
@@ -22,7 +23,6 @@ class _LoginViewBodyState extends State<LoginViewBody> {
   final _controller = ValueNotifier<bool>(false);
 
   bool _checked = false;
-
   TextEditingController? emailController;
   TextEditingController? passwordController;
   @override
@@ -43,7 +43,6 @@ class _LoginViewBodyState extends State<LoginViewBody> {
   }
 
   GlobalKey<FormState> formKey = GlobalKey();
-
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(

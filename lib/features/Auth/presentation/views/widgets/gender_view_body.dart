@@ -1,7 +1,7 @@
 import 'package:ecommerce_app/core/utils/styles.dart';
-import 'package:ecommerce_app/features/Home/presentation/view/home_view.dart';
+
 import 'package:ecommerce_app/features/Home/presentation/view/item_info_view.dart';
-import 'package:ecommerce_app/features/Home/presentation/view/item_info_view_body.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
