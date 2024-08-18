@@ -13,16 +13,15 @@ class CustomAuthTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
-
-    decoration:InputDecoration(
-    constraints:const BoxConstraints(maxWidth: 335,maxHeight:61 ),
-    alignLabelWithHint: true,
-    floatingLabelAlignment: FloatingLabelAlignment.start,
-    floatingLabelBehavior:FloatingLabelBehavior.always ,
-      hintText:hinttext,
-      hintStyle: Styles.text13Regular,
-      labelText: labeltext,
-      labelStyle: Styles.text15Medium
-    ),);
+      decoration: InputDecoration(
+          constraints: const BoxConstraints(maxWidth: 335, maxHeight: 61),
+          alignLabelWithHint: true,
+          floatingLabelAlignment: FloatingLabelAlignment.start,
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+          hintText: hinttext,
+          hintStyle: Styles.text13Regular,
+          labelText: labeltext,
+          labelStyle: Styles.text15Medium),
+    );
   }
 }

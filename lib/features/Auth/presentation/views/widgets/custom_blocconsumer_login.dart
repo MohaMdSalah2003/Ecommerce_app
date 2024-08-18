@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
-class CustomBlocConsumerLogin extends StatelessWidget {
+class CustomBlocConsumerLogin extends StatefulWidget {
   const CustomBlocConsumerLogin({
     super.key,
     required this.email,
@@ -15,6 +15,13 @@ class CustomBlocConsumerLogin extends StatelessWidget {
   });
   final String email, password;
   final GlobalKey<FormState> formKey;
+
+  @override
+  State<CustomBlocConsumerLogin> createState() =>
+      _CustomBlocConsumerLoginState();
+}
+
+class _CustomBlocConsumerLoginState extends State<CustomBlocConsumerLogin> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubitCubit, AuthCubitState>(
@@ -32,10 +39,12 @@ class CustomBlocConsumerLogin extends StatelessWidget {
           isLoading: state is AuthLoading ? true : false,
           title: "Login",
           onTap: () {
-            if (formKey.currentState!.validate()) {
-              BlocProvider.of<AuthCubitCubit>(context)
-                  .signIN(email: email, password: password);
-            }
+            setState(() {
+              if (widget.formKey.currentState!.validate()) {
+                BlocProvider.of<AuthCubitCubit>(context)
+                    .signIN(email: widget.email, password: widget.password);
+              }
+            });
           },
         );
       },
