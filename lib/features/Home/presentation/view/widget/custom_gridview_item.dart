@@ -1,11 +1,13 @@
+import 'package:ecommerce_app/features/Home/data/Models/all_proudcts_model/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CustomGridViewItem extends StatelessWidget {
   const CustomGridViewItem({
     super.key,
+    required this.productModel,
   });
-
+  final ProductModel productModel;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -18,9 +20,9 @@ class CustomGridViewItem extends StatelessWidget {
             width: 160,
             height: 203,
             decoration: ShapeDecoration(
-              image: const DecorationImage(
+              image: DecorationImage(
                 fit: BoxFit.fill,
-                image: AssetImage("assets/images/Rectangle 568.png"),
+                image: NetworkImage(productModel.image!),
               ),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15),
@@ -44,12 +46,12 @@ class CustomGridViewItem extends StatelessWidget {
               ),
             ),
           ),
-          const Positioned(
+          Positioned(
             left: 0,
             top: 200,
             child: Text(
-              '\$99',
-              style: TextStyle(
+              '\$${productModel.price}',
+              style: const TextStyle(
                 color: Color(0xFF1D1E20),
                 fontSize: 13,
                 fontFamily: 'Inter',
