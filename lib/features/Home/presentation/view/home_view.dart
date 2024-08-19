@@ -1,9 +1,11 @@
+import 'package:ecommerce_app/features/Home/presentation/manager/cubit/products_categories_cubit.dart';
 import 'package:ecommerce_app/features/Home/presentation/view/drawer_view.dart';
 import 'package:ecommerce_app/features/Home/presentation/view/widget/custom_menu_appbar.dart';
 import 'package:ecommerce_app/features/Home/presentation/view/widget/custom_navigation_bar.dart';
 import 'package:ecommerce_app/features/Home/presentation/view/widget/home_view_body.dart';
 import 'package:ecommerce_app/features/Review/Presentation/view/review_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
@@ -16,6 +18,11 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   GlobalKey<ScaffoldState> scaffoldState = GlobalKey();
+  @override
+  void initState() {
+    BlocProvider.of<ProductsCategoriesCubit>(context).getAllProducts();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

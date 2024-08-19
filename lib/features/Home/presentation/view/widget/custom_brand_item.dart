@@ -1,11 +1,13 @@
+import 'package:ecommerce_app/features/Home/data/Models/all_categories_model/all_categories_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CustomBrandItem extends StatelessWidget {
   const CustomBrandItem({
     super.key,
+    required this.categoriesModel,
   });
-
+  final AllCategoriesModel categoriesModel;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,7 +34,7 @@ class CustomBrandItem extends StatelessWidget {
           const SizedBox(
             width: 10,
           ),
-          const Text('Adidas')
+          Text(categoriesModel.name!)
         ]),
       ),
     );

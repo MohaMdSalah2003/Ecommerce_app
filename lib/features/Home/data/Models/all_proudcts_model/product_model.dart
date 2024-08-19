@@ -1,7 +1,7 @@
-class Datum {
+class ProductModel {
   int? id;
-  double? price;
-  double? oldPrice;
+  int? price;
+  int? oldPrice;
   int? discount;
   String? image;
   String? name;
@@ -10,7 +10,7 @@ class Datum {
   bool? inFavorites;
   bool? inCart;
 
-  Datum({
+  ProductModel({
     this.id,
     this.price,
     this.oldPrice,
@@ -23,10 +23,10 @@ class Datum {
     this.inCart,
   });
 
-  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+  factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
         id: json['id'] as int?,
-        price: (json['price'] as num?)?.toDouble(),
-        oldPrice: (json['old_price'] as num?)?.toDouble(),
+        price: json['price'] as int?,
+        oldPrice: json['old_price'] as int?,
         discount: json['discount'] as int?,
         image: json['image'] as String?,
         name: json['name'] as String?,
