@@ -1,32 +1,20 @@
 part of 'products_categories_cubit.dart';
 
 @immutable
-sealed class ProductsCategoriesState {}
+sealed class ProductsCubitState {}
 
-final class ProductsCategoriesInitial extends ProductsCategoriesState {}
+final class ProductsCategoriesInitial extends ProductsCubitState {}
 
-final class ProductsCategoriesLoading extends ProductsCategoriesState {}
+final class ProductsLoading extends ProductsCubitState {}
 
-final class GetProductsSuccess extends ProductsCategoriesState {
+final class GetProductsSuccess extends ProductsCubitState {
   final List<ProductModel> products;
 
   GetProductsSuccess({required this.products});
 }
 
-final class GetProductsFauiler extends ProductsCategoriesState {
+final class GetProductsFauiler extends ProductsCubitState {
   final String messagEerror;
 
   GetProductsFauiler({required this.messagEerror});
-}
-
-final class GetCategoriesSuccess extends ProductsCategoriesState {
-  final List<AllCategoriesModel> categories;
-
-  GetCategoriesSuccess({required this.categories});
-}
-
-final class GetCategoriesFauiler extends ProductsCategoriesState {
-  final String messagEerror;
-
-  GetCategoriesFauiler({required this.messagEerror});
 }

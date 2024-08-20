@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/features/Home/presentation/manager/cubit/products_categories_cubit.dart';
+import 'package:ecommerce_app/features/Home/presentation/manager/getcategoriescubit/cubit/all_categories_cubit.dart';
 import 'package:ecommerce_app/features/Home/presentation/view/widget/custom_brand_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,7 +10,7 @@ class CustomBrandListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ProductsCategoriesCubit, ProductsCategoriesState>(
+    return BlocBuilder<AllCategoriesCubit, AllCategoriesState>(
       builder: (context, state) {
         if (state is GetCategoriesSuccess) {
           return ListView.builder(
