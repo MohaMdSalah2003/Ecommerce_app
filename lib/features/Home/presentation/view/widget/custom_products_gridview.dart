@@ -10,7 +10,7 @@ class CustomProductsGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ProductsCategoriesCubit, ProductsCategoriesState>(
+    return BlocBuilder<AllProductsCubit, ProductsCubitState>(
       builder: (context, state) {
         if (state is GetProductsSuccess) {
           return Expanded(
