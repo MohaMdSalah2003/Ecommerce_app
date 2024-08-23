@@ -11,7 +11,7 @@ class CustomBrandItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 115,
+      // width: 115,
       height: 50,
       decoration: ShapeDecoration(
         color: const Color(0xFFF5F6FA),
