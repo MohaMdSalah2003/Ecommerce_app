@@ -41,7 +41,11 @@ class Faceorgooglebutton extends StatelessWidget {
             const SizedBox(
               width: 20,
             ),
-            const CustomIconButton(iconImage: "assets/images/Facebook.svg")
+            CustomIconButton(
+                ontap: () {
+                  BlocProvider.of<AuthCubitCubit>(context).signInWithFacebook();
+                },
+                iconImage: "assets/images/Facebook.svg")
 
             // IconButton(onPressed: (){}, icon:Container(
             //   width: 40,
