@@ -58,6 +58,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 height: 152,
               ),
               CustomTextField(
+                keyboardType: TextInputType.name,
                 controller: usernameController,
                 hintText: "Please Enter your username",
                 labelText: "Username",
@@ -66,6 +67,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 height: 20,
               ),
               CustomTextField(
+                keyboardType: TextInputType.visiblePassword,
                 controller: passwordController,
                 hintText: "Please Enter your password",
                 labelText: "Password",
@@ -74,6 +76,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 height: 20,
               ),
               CustomTextField(
+                keyboardType: TextInputType.emailAddress,
                 controller: emailController,
                 hintText: "Please Enter your Email",
                 labelText: "Email Address",

@@ -19,9 +19,9 @@ class HomeRepoImp implements HomeRepo {
       return right(categories);
     } catch (e) {
       if (e is DioException) {
-        return left(ServerFailuer.fromDioerror(e));
+        return left(ServerFailure.fromDioerror(e));
       }
-      return left(ServerFailuer(e.toString()));
+      return left(ServerFailure(e.toString()));
     }
   }
 
@@ -29,6 +29,7 @@ class HomeRepoImp implements HomeRepo {
   Future<Either<Failure, List<ProductModel>>> getAllProducts() async {
     try {
       var data = await apiService.get(endpoint: 'products');
+      print(data);
       List<ProductModel> products = [];
       for (var item in data["data"]["data"]) {
         products.add(ProductModel.fromJson(item));
@@ -36,9 +37,9 @@ class HomeRepoImp implements HomeRepo {
       return right(products);
     } catch (e) {
       if (e is DioException) {
-        return left(ServerFailuer.fromDioerror(e));
+        return left(ServerFailure.fromDioerror(e));
       }
-      return left(ServerFailuer(e.toString()));
+      return left(ServerFailure(e.toString()));
     }
   }
 }

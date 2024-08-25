@@ -12,8 +12,8 @@ class AuthCubitCubit extends Cubit<AuthCubitState> {
     var result =
         await authRepo.createNewAccount(email: email, password: password);
     result.fold(
-      (messagEerror) {
-        emit(CreatAccountFauiler(messagEerror: messagEerror));
+      (messageError) {
+        emit(CreatAccountFauiler(messagEerror: messageError));
       },
       (r) {
         emit(CreatAccountSuccess());

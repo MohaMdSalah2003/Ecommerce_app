@@ -5,6 +5,7 @@ class ApiService {
   final dio = Dio();
   Future<Map<String, dynamic>> get({required String endpoint}) async {
     var result = await dio.get('$baseUrl$endpoint');
+
     return result.data;
   }
 
