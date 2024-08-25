@@ -12,7 +12,7 @@ class AllProductsCubit extends Cubit<ProductsCubitState> {
     emit(ProductsLoading());
     var result = await homeRepo.getAllProducts();
     result.fold((l) {
-      emit(GetProductsFauiler(messagEerror: l.toString()));
+      emit(GetProductsFauiler(messagEerror: l.errormessage));
     }, (r) {
       emit(GetProductsSuccess(products: r));
     });

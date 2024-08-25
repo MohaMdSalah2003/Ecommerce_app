@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
-class AuthRepoImp extends AuthRepo {
+class AuthRepoImp implements AuthRepo {
   @override
   Future<Either<String, void>> createNewAccount(
       {required String email, required String password}) async {
@@ -19,11 +19,10 @@ class AuthRepoImp extends AuthRepo {
         return left('The password provided is too weak.');
       } else if (e.code == 'email-already-in-use') {
         return left('The account already exists for that email.');
+      } else {
+        return left(e.toString());
       }
-    } catch (e) {
-      return left(e.toString());
     }
-    return right(null);
   }
 
   @override
@@ -38,6 +37,8 @@ class AuthRepoImp extends AuthRepo {
         return left('No user found for that email.');
       } else if (e.code == 'wrong-password') {
         return left('Wrong password provided for that user.');
+      } else if (e.code == "invalid-credential") {
+        return const Left('Incorrect password or email.');
       }
       return right(null);
     }
