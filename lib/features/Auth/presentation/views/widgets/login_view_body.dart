@@ -59,11 +59,11 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 style: Styles.text60RegularSacramento
                     .copyWith(color: const Color(0xff9775FA)),
               ),
-
               const SizedBox(
                 height: 100,
               ),
               CustomTextField(
+                keyboardType: TextInputType.emailAddress,
                 hintText: "Please Enter your Email",
                 labelText: "Email",
                 controller: emailController,
@@ -72,6 +72,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 height: 40,
               ),
               CustomTextField(
+                keyboardType: TextInputType.visiblePassword,
                 hintText: "Please Enter your Password",
                 labelText: "Password",
                 controller: passwordController,
@@ -106,11 +107,6 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               const SizedBox(
                 height: 20,
               ),
-
-              // Padding(
-              //   padding: const EdgeInsets.symmetric(horizontal: 10),
-              //   child: Text("By connecting your account confirm that you agree with our Term and Condition",style: Styles.text13Regular,textAlign: TextAlign.center,),
-              // ),
               const SizedBox(
                 height: 25,
               ),

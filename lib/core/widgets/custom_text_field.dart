@@ -3,30 +3,29 @@ import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({
-    super.key,
-    this.icon,
-    required this.hintText,
-    this.labelText,
-    this.fillColor,
-    this.maxLines,
-    this.controller,
-  });
+  const CustomTextField(
+      {super.key,
+      this.icon,
+      required this.hintText,
+      this.labelText,
+      this.fillColor,
+      this.maxLines,
+      this.controller,
+      this.validate,
+      this.keyboardType});
   final IconData? icon;
   final String hintText;
   final String? labelText;
   final Color? fillColor;
   final int? maxLines;
   final TextEditingController? controller;
+  final String Function(String?)? validate;
+  final TextInputType? keyboardType;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      validator: (data) {
-        if (data!.isEmpty) {
-          return 'Please fill the Data';
-        }
-        return null;
-      },
+      keyboardType: keyboardType,
+      validator: validate,
       controller: controller,
       maxLines: maxLines,
       decoration: InputDecoration(
