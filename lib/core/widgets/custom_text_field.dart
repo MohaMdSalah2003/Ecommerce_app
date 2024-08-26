@@ -21,9 +21,12 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      // validator: (value) {
-      //   return 'Plase Enter the data';
-      // },
+      validator: (data) {
+        if (data!.isEmpty) {
+          return 'Please fill the Data';
+        }
+        return null;
+      },
       controller: controller,
       maxLines: maxLines,
       decoration: InputDecoration(

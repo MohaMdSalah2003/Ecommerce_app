@@ -2,7 +2,6 @@ import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:ecommerce_app/core/widgets/custom_textSwitch.dart';
 import 'package:ecommerce_app/core/widgets/custom_text_field.dart';
 import 'package:ecommerce_app/features/Auth/presentation/views/forget_password_view.dart';
-import 'package:ecommerce_app/features/Auth/presentation/views/gender_view.dart';
 import 'package:ecommerce_app/features/Auth/presentation/views/signup_view.dart';
 import 'package:ecommerce_app/features/Auth/presentation/views/widgets/FaceOrGoogleButton.dart';
 import 'package:ecommerce_app/features/Auth/presentation/views/widgets/custom_blocconsumer_login.dart';

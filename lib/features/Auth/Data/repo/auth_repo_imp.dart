@@ -23,7 +23,7 @@ class AuthRepoImp extends AuthRepo {
     } catch (e) {
       return left(e.toString());
     }
-    return right(null);
+    return left('Something went Wrong');
   }
 
   @override
@@ -39,7 +39,7 @@ class AuthRepoImp extends AuthRepo {
       } else if (e.code == 'wrong-password') {
         return left('Wrong password provided for that user.');
       }
-      return right(null);
+      return left('Something went Wrong');
     }
   }
 

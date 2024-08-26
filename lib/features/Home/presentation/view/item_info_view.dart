@@ -1,6 +1,5 @@
 import 'package:ecommerce_app/features/Home/presentation/view/item_info_view_body.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class ItemInfoView extends StatelessWidget {
   const ItemInfoView({super.key});
