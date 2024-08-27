@@ -12,83 +12,79 @@ class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(slivers: [
-      SliverToBoxAdapter(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: 20,
-            horizontal: 20,
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        vertical: 20,
+        horizontal: 20,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'Hemendra',
+            style: Styles.text28SemiBold,
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          Text(
+            'Welcome to Laza.',
+            style: Styles.text15Regular.copyWith(
+              color: kSecondColor,
+            ),
+          ),
+          const SizedBox(height: 20),
+          Row(
             children: [
-              const Text(
-                'Hemendra',
-                style: Styles.text28SemiBold,
-              ),
-              Text(
-                'Welcome to Laza.',
-                style: Styles.text15Regular.copyWith(
-                  color: kSecondColor,
+              const Expanded(
+                child: CustomTextField(
+                  icon: Icons.search,
+                  hintText: 'Search...',
                 ),
               ),
-              const SizedBox(height: 20),
-              Row(
-                children: [
-                  const Expanded(
-                    child: CustomTextField(
-                      icon: Icons.search,
-                      hintText: 'Search...',
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  SvgPicture.asset('assets/images/Voice.svg'),
-                ],
-              ),
-              const SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'Choose Brand',
-                    style: Styles.text17Medium,
-                  ),
-                  Text('View All',
-                      style: Styles.text13Regular.copyWith(
-                        color: kSecondColor,
-                      )),
-                ],
-              ),
-              const SizedBox(height: 15),
-              const SizedBox(
-                height: 50,
-                child: CustomBrandListView(),
-              ),
-              const SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'New Arraival',
-                    style: Styles.text17Medium,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Get.to(() => const AllProductsView());
-                    },
-                    child: Text('View All',
-                        style: Styles.text13Regular.copyWith(
-                          color: kSecondColor,
-                        )),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              const CustomProductsGridView(),
+              const SizedBox(width: 10),
+              SvgPicture.asset('assets/images/Voice.svg'),
             ],
           ),
-        ),
+          const SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                'Choose Brand',
+                style: Styles.text17Medium,
+              ),
+              Text('View All',
+                  style: Styles.text13Regular.copyWith(
+                    color: kSecondColor,
+                  )),
+            ],
+          ),
+          const SizedBox(height: 15),
+          const SizedBox(
+            height: 50,
+            child: CustomBrandListView(),
+          ),
+          const SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                'New Arraival',
+                style: Styles.text17Medium,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Get.to(() => const AllProductsView());
+                },
+                child: Text('View All',
+                    style: Styles.text13Regular.copyWith(
+                      color: kSecondColor,
+                    )),
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
+          const CustomProductsGridView(),
+        ],
       ),
-    ]);
+    );
   }
 }

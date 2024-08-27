@@ -1,9 +1,10 @@
 import 'package:ecommerce_app/core/utils/styles.dart';
+import 'package:ecommerce_app/features/Home/data/Models/all_proudcts_model/product_model.dart';
 import 'package:flutter/material.dart';
 
 class ItemInfoViewBody extends StatefulWidget {
-  const ItemInfoViewBody({super.key});
-
+  const ItemInfoViewBody({super.key, required this.productModel});
+  final ProductModel productModel;
   @override
   State<ItemInfoViewBody> createState() => _ItemInfoViewBodyState();
 }
@@ -21,9 +22,9 @@ class _ItemInfoViewBodyState extends State<ItemInfoViewBody> {
           color: Colors.red,
           width: double.infinity,
           height: 395,
-          child: const Image(
+          child: Image(
               fit: BoxFit.fill,
-              image: AssetImage("assets/images/Rectangle 568.png")),
+              image: NetworkImage(widget.productModel.image!)),
         ),
         Expanded(
           child: Padding(
@@ -35,7 +36,9 @@ class _ItemInfoViewBodyState extends State<ItemInfoViewBody> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Price(),
+                Price(
+                  productModel: widget.productModel,
+                ),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -90,8 +93,8 @@ class _ItemInfoViewBodyState extends State<ItemInfoViewBody> {
                 const SizedBox(
                   height: 10,
                 ),
-                const Text(
-                  "The Nike Throwback Pullover Hoodie is made from premium French terry fabric that blends a performance feel with Read More..",
+                Text(
+                  "${widget.productModel.description}..",
                   style: Styles.text15Regular,
                 )
               ],
@@ -106,12 +109,13 @@ class _ItemInfoViewBodyState extends State<ItemInfoViewBody> {
 class Price extends StatelessWidget {
   const Price({
     super.key,
+    required this.productModel,
   });
-
+  final ProductModel productModel;
   @override
   Widget build(BuildContext context) {
-    return const Column(children: [
-      Row(
+    return Column(children: [
+      const Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
@@ -128,11 +132,11 @@ class Price extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            'Nike Club Fleece',
+            '${productModel.name}',
             style: Styles.text22SemiBold,
           ),
           Text(
-            r"$99",
+            "\${${productModel.price}}",
             style: Styles.text22SemiBold,
           )
         ],

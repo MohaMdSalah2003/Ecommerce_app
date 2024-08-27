@@ -60,7 +60,7 @@ class GenderViewBody extends StatelessWidget {
                   ),
                   GestureDetector(
                       onTap: () {
-                        Get.to(() => const ItemInfoView());
+                        // Get.to(() => const ItemInfoView());
                       },
                       child: const Center(
                           child: Text(

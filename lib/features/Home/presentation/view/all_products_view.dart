@@ -15,6 +15,7 @@ class AllProductsView extends StatelessWidget {
       create: (context) => AllProductsCubit(HomeRepoImp())..getAllProducts(),
       child: Scaffold(
           appBar: AppBar(
+            centerTitle: true,
             leading: IconButton(
                 onPressed: () {
                   Get.back();
@@ -22,7 +23,7 @@ class AllProductsView extends StatelessWidget {
                 icon: const Icon(Icons.arrow_back)),
             title: const Text(
               'All Products ',
-              style: Styles.text15Regular,
+              style: Styles.text40RegularSacramento,
             ),
           ),
           body: const AllProductsViewBody()),

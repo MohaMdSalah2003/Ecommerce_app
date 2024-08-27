@@ -15,7 +15,7 @@ class CustomProductsGridView extends StatelessWidget {
         if (state is GetProductsSuccess) {
           return Expanded(
             child: GridView.builder(
-              itemCount: 10,
+              itemCount: state.products.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 mainAxisSpacing: 65,

@@ -35,7 +35,8 @@ class Faceorgooglebutton extends StatelessWidget {
             CustomIconButton(
               iconImage: "assets/images/Google.svg",
               ontap: () {
-                BlocProvider.of<AuthCubitCubit>(context).signInWithGoogle();
+                Get.to(() => const HomeView());
+                // BlocProvider.of<AuthCubitCubit>(context).signInWithGoogle();
               },
             ),
             const SizedBox(
