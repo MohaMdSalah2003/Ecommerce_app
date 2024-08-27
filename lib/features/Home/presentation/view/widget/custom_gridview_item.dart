@@ -29,15 +29,15 @@ class CustomGridViewItem extends StatelessWidget {
               ),
             ),
           ),
-          const Positioned(
+          Positioned(
             left: 0,
             top: 160,
             child: SizedBox(
               width: 117,
               child: Text(
                 maxLines: 2,
-                'Nike Sportswear Club\n Fleece',
-                style: TextStyle(
+                productModel.name as String,
+                style: const TextStyle(
                   color: Color(0xFF1D1E20),
                   fontSize: 11,
                   fontFamily: 'Inter',

@@ -1,4 +1,6 @@
 import 'package:ecommerce_app/core/utils/bloc_observ.dart';
+import 'package:ecommerce_app/core/utils/styles.dart';
+import 'package:ecommerce_app/core/utils/themes.dart';
 import 'package:ecommerce_app/features/Auth/Data/repo/auth_repo_imp.dart';
 import 'package:ecommerce_app/features/Auth/presentation/manager/cubit/auth_cubit_cubit.dart';
 import 'package:ecommerce_app/features/Home/data/repo/home_repoimp.dart';
@@ -8,6 +10,7 @@ import 'package:ecommerce_app/features/Splash/presentation/views/splash_view.dar
 import 'package:ecommerce_app/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
@@ -32,10 +35,9 @@ class Ecommerce extends StatelessWidget {
         ),
       ],
       child: GetMaterialApp(
-        theme: ThemeData(
-          brightness: Brightness.light,
-        ),
+        theme: themes.lighttheme,
         debugShowCheckedModeBanner: false,
+        darkTheme: themes.darktheme,
         home: const SplashView(),
       ),
     );
