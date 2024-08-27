@@ -12,7 +12,7 @@ class CustomBottomnavigationBarItems extends StatefulWidget {
       _CustomBottomnavigationBarItemsState();
 }
 
-int index = 1;
+int index = 0;
 
 class _CustomBottomnavigationBarItemsState
     extends State<CustomBottomnavigationBarItems> {
@@ -26,7 +26,7 @@ class _CustomBottomnavigationBarItemsState
           ),
           FlashyTabBarItem(
             icon: SvgPicture.asset('assets/images/Heart.svg'),
-            title: const Text('Home'),
+            title: const Text('Favorite'),
           ),
           FlashyTabBarItem(
             icon: SvgPicture.asset('assets/images/Bag.svg'),

@@ -1,3 +1,6 @@
+import 'package:ecommerce_app/core/utils/constants.dart';
+import 'package:ecommerce_app/features/Cart/presentation/views/cart_view.dart';
+import 'package:ecommerce_app/features/Favorites/presentation/view/favorites_view.dart';
 import 'package:ecommerce_app/features/Home/data/repo/home_repoimp.dart';
 import 'package:ecommerce_app/features/Home/presentation/manager/cubit/products_categories_cubit.dart';
 import 'package:ecommerce_app/features/Home/presentation/manager/getcategoriescubit/cubit/all_categories_cubit.dart';
@@ -18,8 +21,15 @@ class HomeView extends StatefulWidget {
   State<HomeView> createState() => _HomeViewState();
 }
 
+List<Widget> views = [
+  const HomeView(),
+  const FavoritesView(),
+  const CartView(),
+];
+
 class _HomeViewState extends State<HomeView> {
   GlobalKey<ScaffoldState> scaffoldState = GlobalKey();
+  int index = 0;
   @override
   void initState() {
     super.initState();
@@ -55,7 +65,7 @@ class _HomeViewState extends State<HomeView> {
           ],
         ),
         drawer: const DrawerView(),
-        body: const HomeViewBody(),
+        body: const HomeView(),
         bottomNavigationBar: const CustomBottomnavigationBarItems(),
       ),
     );

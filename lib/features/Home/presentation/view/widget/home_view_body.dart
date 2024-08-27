@@ -1,10 +1,12 @@
 import 'package:ecommerce_app/core/utils/constants.dart';
 import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:ecommerce_app/core/widgets/custom_text_field.dart';
+import 'package:ecommerce_app/features/Home/presentation/view/all_products_view.dart';
 import 'package:ecommerce_app/features/Home/presentation/view/widget/custom_brand_listview.dart';
 import 'package:ecommerce_app/features/Home/presentation/view/widget/custom_products_gridview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -68,10 +70,15 @@ class HomeViewBody extends StatelessWidget {
                 'New Arraival',
                 style: Styles.text17Medium,
               ),
-              Text('View All',
-                  style: Styles.text13Regular.copyWith(
-                    color: kSecondColor,
-                  )),
+              GestureDetector(
+                onTap: () {
+                  Get.to(() => const AllProductsView());
+                },
+                child: Text('View All',
+                    style: Styles.text13Regular.copyWith(
+                      color: kSecondColor,
+                    )),
+              ),
             ],
           ),
           const SizedBox(height: 20),

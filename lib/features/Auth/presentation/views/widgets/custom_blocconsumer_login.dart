@@ -39,12 +39,10 @@ class _CustomBlocConsumerLoginState extends State<CustomBlocConsumerLogin> {
           isLoading: state is AuthLoading ? true : false,
           title: "Login",
           onTap: () {
-            setState(() {
-              if (widget.formKey.currentState!.validate()) {
-                BlocProvider.of<AuthCubitCubit>(context)
-                    .signIN(email: widget.email, password: widget.password);
-              }
-            });
+            if (widget.formKey.currentState!.validate()) {
+              BlocProvider.of<AuthCubitCubit>(context)
+                  .signIN(email: widget.email, password: widget.password);
+            }
           },
         );
       },

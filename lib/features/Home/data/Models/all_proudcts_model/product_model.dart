@@ -9,7 +9,7 @@ class ProductModel {
   List<dynamic>? images;
   bool? inFavorites;
   bool? inCart;
-
+  String? docId;
   ProductModel({
     this.id,
     this.price,
@@ -21,20 +21,21 @@ class ProductModel {
     this.images,
     this.inFavorites,
     this.inCart,
+    this.docId,
   });
 
-  factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
-        id: json['id'],
-        price: json['price'],
-        oldPrice: json['old_price'],
-        discount: json['discount'],
-        image: json['image'] as String?,
-        name: json['name'] as String?,
-        description: json['description'] as String?,
-        images: json['images'] as List<dynamic>?,
-        inFavorites: json['in_favorites'] as bool?,
-        inCart: json['in_cart'] as bool?,
-      );
+  factory ProductModel.fromJson(json, [docID]) => ProductModel(
+      id: json['id'],
+      price: json['price'],
+      oldPrice: json['old_price'],
+      discount: json['discount'],
+      image: json['image'] as String?,
+      name: json['name'] as String?,
+      description: json['description'] as String?,
+      images: json['images'] as List<dynamic>?,
+      inFavorites: json['in_favorites'] as bool?,
+      inCart: json['in_cart'] as bool?,
+      docId: docID);
 
   Map<String, dynamic> toJson() => {
         'id': id,

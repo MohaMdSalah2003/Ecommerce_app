@@ -39,8 +39,9 @@ class AuthRepoImp implements AuthRepo {
         return left('Wrong password provided for that user.');
       } else if (e.code == "invalid-credential") {
         return const Left('Incorrect password or email.');
+      } else {
+        return left(e.toString());
       }
-      return right(null);
     }
   }
 

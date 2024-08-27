@@ -1,10 +1,10 @@
+import 'package:ecommerce_app/features/Home/data/Models/all_proudcts_model/product_model.dart';
 import 'package:ecommerce_app/features/Home/presentation/view/item_info_view_body.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class ItemInfoView extends StatelessWidget {
-  const ItemInfoView({super.key});
-
+  const ItemInfoView({super.key, required this.productModel});
+  final ProductModel productModel;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +14,10 @@ class ItemInfoView extends StatelessWidget {
         forceMaterialTransparency: true,
         elevation: 0,
       ),
-      body: const SafeArea(child: ItemInfoViewBody()),
+      body: SafeArea(
+          child: ItemInfoViewBody(
+        productModel: productModel,
+      )),
     );
   }
 }

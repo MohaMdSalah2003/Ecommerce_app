@@ -6,8 +6,10 @@ class CustomGridViewItem extends StatelessWidget {
   const CustomGridViewItem({
     super.key,
     required this.productModel,
+    this.favorite = false,
   });
   final ProductModel productModel;
+  final bool favorite;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -36,7 +38,7 @@ class CustomGridViewItem extends StatelessWidget {
               width: 117,
               child: Text(
                 maxLines: 2,
-                productModel.name as String,
+                '${productModel.name}\n ${productModel.description}',
                 style: const TextStyle(
                   color: Color(0xFF1D1E20),
                   fontSize: 11,
@@ -63,7 +65,9 @@ class CustomGridViewItem extends StatelessWidget {
           Positioned(
             right: 10,
             top: 20,
-            child: SvgPicture.asset('assets/images/Heart.svg'),
+            child: favorite
+                ? const Icon(Icons.cancel)
+                : SvgPicture.asset('assets/images/Heart.svg'),
           ),
         ],
       ),

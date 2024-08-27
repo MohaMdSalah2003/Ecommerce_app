@@ -38,12 +38,10 @@ class _CustomBlocConsumerSignState extends State<CustomBlocConsumerSign> {
           isLoading: state is AuthLoading ? true : false,
           title: "Sign In",
           onTap: () {
-            setState(() {
-              if (widget.formKey.currentState!.validate()) {
-                BlocProvider.of<AuthCubitCubit>(context).createNewAccount(
-                    email: widget.email, password: widget.password);
-              }
-            });
+            if (widget.formKey.currentState!.validate()) {
+              BlocProvider.of<AuthCubitCubit>(context).createNewAccount(
+                  email: widget.email, password: widget.password);
+            }
           },
         );
       },
