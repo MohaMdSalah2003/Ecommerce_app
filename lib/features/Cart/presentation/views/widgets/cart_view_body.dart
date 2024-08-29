@@ -14,17 +14,15 @@ class CartViewBody extends StatefulWidget {
 class _CartViewBodyState extends State<CartViewBody> {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
-        Container(
-          child: const Column(
-            children: [
-              DeliveryAddress(),
-              PaymentMethod(),
-              PriceInfo(),
-              CustomButton(title: "Check Out")
-            ],
-          ),
+        Column(
+          children: [
+            DeliveryAddress(),
+            PaymentMethod(),
+            PriceInfo(),
+            CustomButton(title: "Check Out")
+          ],
         )
       ],
     );
