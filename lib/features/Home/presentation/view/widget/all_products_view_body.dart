@@ -9,7 +9,7 @@ class AllProductsViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 2),
+      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
       child: CustomScrollView(slivers: [
         SliverToBoxAdapter(
           child: CustomTextField(

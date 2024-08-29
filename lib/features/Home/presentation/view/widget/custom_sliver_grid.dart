@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/features/Favorites/presentation/manager/cubit/favorite_cubit.dart';
 import 'package:ecommerce_app/features/Home/presentation/manager/cubit/products_categories_cubit.dart';
 import 'package:ecommerce_app/features/Home/presentation/view/item_info_view.dart';
 import 'package:ecommerce_app/features/Home/presentation/view/widget/custom_gridview_item.dart';
@@ -23,15 +24,17 @@ class CustomProductsSliverGridView extends StatelessWidget {
               crossAxisSpacing: 10,
             ),
             itemBuilder: (context, index) {
-              return GestureDetector(
+              return CustomGridViewItem(
+                productModel: state.products[index],
                 onTap: () {
                   Get.to(ItemInfoView(
                     productModel: state.products[index],
                   ));
                 },
-                child: CustomGridViewItem(
-                  productModel: state.products[index],
-                ),
+                icoOntap: () {
+                  BlocProvider.of<FavoriteCubit>(context)
+                      .addProductToFavorites(product: state.products[index]);
+                },
               );
             },
           );

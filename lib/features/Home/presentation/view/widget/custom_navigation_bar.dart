@@ -5,14 +5,15 @@ import 'package:flutter_svg/svg.dart';
 class CustomBottomnavigationBarItems extends StatefulWidget {
   const CustomBottomnavigationBarItems({
     super.key,
+    required this.index,
+    required this.onItemSelected,
   });
-
+  final int index;
+  final void Function(int) onItemSelected;
   @override
   State<CustomBottomnavigationBarItems> createState() =>
       _CustomBottomnavigationBarItemsState();
 }
-
-int index = 0;
 
 class _CustomBottomnavigationBarItemsState
     extends State<CustomBottomnavigationBarItems> {
@@ -37,12 +38,8 @@ class _CustomBottomnavigationBarItemsState
             title: const Text('Wallet'),
           ),
         ],
-        onItemSelected: (int value) {
-          setState(() {
-            index = value;
-          });
-        },
+        onItemSelected: widget.onItemSelected,
         iconSize: 30,
-        selectedIndex: index);
+        selectedIndex: widget.index);
   }
 }

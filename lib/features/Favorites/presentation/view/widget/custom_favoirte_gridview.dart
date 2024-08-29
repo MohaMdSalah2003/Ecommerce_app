@@ -30,6 +30,16 @@ class CustomFavoirteGridView extends StatelessWidget {
                   },
                   child: CustomGridViewItem(
                     favorite: true,
+                    onTap: () {
+                      Get.to(ItemInfoView(
+                        productModel: state.favoriteProductS[index],
+                      ));
+                    },
+                    icoOntap: () {
+                      BlocProvider.of<FavoriteCubit>(context)
+                          .deleteProductFromFavorites(
+                              docId: state.favoriteProductS[index].docId!);
+                    },
                     productModel: state.favoriteProductS[index],
                   ),
                 );

@@ -1,4 +1,3 @@
-import 'package:ecommerce_app/core/utils/constants.dart';
 import 'package:ecommerce_app/features/Cart/presentation/views/cart_view.dart';
 import 'package:ecommerce_app/features/Favorites/presentation/view/favorites_view.dart';
 import 'package:ecommerce_app/features/Home/data/repo/home_repoimp.dart';
@@ -21,20 +20,14 @@ class HomeView extends StatefulWidget {
   State<HomeView> createState() => _HomeViewState();
 }
 
-List<Widget> views = [
-  const HomeView(),
-  const FavoritesView(),
-  const CartView(),
-];
-
 class _HomeViewState extends State<HomeView> {
   GlobalKey<ScaffoldState> scaffoldState = GlobalKey();
+  List<Widget> views = [
+    const HomeViewBody(),
+    const FavoritesView(),
+    const CartView()
+  ];
   int index = 0;
-  @override
-  void initState() {
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -64,9 +57,16 @@ class _HomeViewState extends State<HomeView> {
                     child: SvgPicture.asset('assets/images/Cart.svg')))
           ],
         ),
+        bottomNavigationBar: CustomBottomnavigationBarItems(
+          index: index,
+          onItemSelected: (int value) {
+            setState(() {
+              index = value;
+            });
+          },
+        ),
         drawer: const DrawerView(),
-        body: const HomeView(),
-        bottomNavigationBar: const CustomBottomnavigationBarItems(),
+        body: views[index],
       ),
     );
   }
