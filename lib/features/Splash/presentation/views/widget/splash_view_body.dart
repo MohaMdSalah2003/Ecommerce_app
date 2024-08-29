@@ -17,7 +17,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   void initState() {
     Future.delayed(const Duration(seconds: 4), () {
       Get.to(
-        () => const LoginView(),
+        () => const HomeView(),
         transition: Transition.rightToLeft,
       );
     });

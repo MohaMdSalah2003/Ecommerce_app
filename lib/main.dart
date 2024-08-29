@@ -38,6 +38,7 @@ class Ecommerce extends StatelessWidget {
         theme: themes.lighttheme,
         debugShowCheckedModeBanner: false,
         darkTheme: themes.darktheme,
+        themeMode: ThemeMode.light,
         home: const SplashView(),
       ),
     );

@@ -65,7 +65,7 @@ class _HomeViewState extends State<HomeView> {
           ],
         ),
         drawer: const DrawerView(),
-        body: const HomeView(),
+        body: const HomeViewBody(),
         bottomNavigationBar: const CustomBottomnavigationBarItems(),
       ),
     );
