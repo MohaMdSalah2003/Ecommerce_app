@@ -1,7 +1,10 @@
+import 'package:ecommerce_app/features/Favorites/presentation/manager/cubit/favorite_cubit.dart';
 import 'package:ecommerce_app/features/Home/presentation/manager/cubit/products_categories_cubit.dart';
+import 'package:ecommerce_app/features/Home/presentation/view/item_info_view.dart';
 import 'package:ecommerce_app/features/Home/presentation/view/widget/custom_gridview_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 
 class CustomProductsGridView extends StatelessWidget {
   const CustomProductsGridView({
@@ -23,6 +26,13 @@ class CustomProductsGridView extends StatelessWidget {
               ),
               itemBuilder: (context, index) {
                 return CustomGridViewItem(
+                  onTap: () {
+                    Get.to(ItemInfoView(productModel: state.products[index]));
+                  },
+                  icoOntap: () {
+                    BlocProvider.of<FavoriteCubit>(context)
+                        .addProductToFavorites(product: state.products[index]);
+                  },
                   productModel: state.products[index],
                 );
               },
