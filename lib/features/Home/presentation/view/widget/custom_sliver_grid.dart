@@ -23,7 +23,7 @@ class CustomProductsSliverGridView extends StatelessWidget {
               mainAxisSpacing: 65,
               crossAxisSpacing: 10,
             ),
-            itemBuilder: (context, index) {
+            itemBuilder: (itemcontext, index) {
               return CustomGridViewItem(
                 productModel: state.products[index],
                 onTap: () {
@@ -32,7 +32,7 @@ class CustomProductsSliverGridView extends StatelessWidget {
                   ));
                 },
                 icoOntap: () {
-                  BlocProvider.of<FavoriteCubit>(context)
+                  BlocProvider.of<FavoriteCubit>(itemcontext)
                       .addProductToFavorites(product: state.products[index]);
                 },
               );

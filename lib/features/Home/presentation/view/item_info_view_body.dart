@@ -17,18 +17,18 @@ class _ItemInfoViewBodyState extends State<ItemInfoViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          color: Colors.red,
-          width: double.infinity,
-          height: 395,
-          child: Image(
-              fit: BoxFit.fill,
-              image: NetworkImage(widget.productModel.image!)),
-        ),
-        Expanded(
-          child: Padding(
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Container(
+            color: Colors.red,
+            width: double.infinity,
+            height: 395,
+            child: Image(
+                fit: BoxFit.fill,
+                image: NetworkImage(widget.productModel.image!)),
+          ),
+          Padding(
             padding: const EdgeInsets.only(
               top: 20,
               right: 20.0,
@@ -95,14 +95,15 @@ class _ItemInfoViewBodyState extends State<ItemInfoViewBody> {
                   height: 10,
                 ),
                 Text(
-                  "${widget.productModel.description}..",
+                  textDirection: TextDirection.rtl,
+                  "${widget.productModel.description}",
                   style: Styles.text15Regular,
                 )
               ],
             ),
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 }
