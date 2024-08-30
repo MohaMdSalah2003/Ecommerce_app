@@ -24,13 +24,13 @@ class CustomProductsGridView extends StatelessWidget {
                 mainAxisSpacing: 65,
                 crossAxisSpacing: 10,
               ),
-              itemBuilder: (context, index) {
+              itemBuilder: (itemcontext, index) {
                 return CustomGridViewItem(
                   onTap: () {
                     Get.to(ItemInfoView(productModel: state.products[index]));
                   },
                   icoOntap: () {
-                    BlocProvider.of<FavoriteCubit>(context)
+                    BlocProvider.of<FavoriteCubit>(itemcontext)
                         .addProductToFavorites(product: state.products[index]);
                   },
                   productModel: state.products[index],

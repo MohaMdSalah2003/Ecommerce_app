@@ -1,4 +1,7 @@
 import 'package:ecommerce_app/features/Cart/presentation/views/cart_view.dart';
+import 'package:ecommerce_app/features/Favorites/Data/repo/favorites_repo._imp.dart';
+import 'package:ecommerce_app/features/Favorites/Data/repo/favorites_repo.dart';
+import 'package:ecommerce_app/features/Favorites/presentation/manager/cubit/favorite_cubit.dart';
 import 'package:ecommerce_app/features/Favorites/presentation/view/favorites_view.dart';
 import 'package:ecommerce_app/features/Home/data/repo/home_repoimp.dart';
 import 'package:ecommerce_app/features/Home/presentation/manager/cubit/products_categories_cubit.dart';
@@ -40,6 +43,9 @@ class _HomeViewState extends State<HomeView> {
           create: (context) =>
               AllProductsCubit(HomeRepoImp())..getAllProducts(),
         ),
+        BlocProvider(
+          create: (context) => FavoriteCubit(FavoritesRepoImp()),
+        )
       ],
       child: Scaffold(
         extendBody: true,

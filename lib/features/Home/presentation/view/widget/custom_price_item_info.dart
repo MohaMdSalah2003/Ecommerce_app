@@ -15,7 +15,7 @@ class Price extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            "Men's Printed Pullover Hoodie",
+            "Product",
             style: Styles.text13Regular,
           ),
           Text(
@@ -28,15 +28,15 @@ class Price extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           SizedBox(
-            width: 117,
+            width: 160,
             child: Text(
-              overflow: TextOverflow.ellipsis,
+              overflow: TextOverflow.visible,
               '${productModel.name}',
-              style: Styles.text22SemiBold,
+              style: Styles.text17SemiBold,
             ),
           ),
           Text(
-            "\${${productModel.price}}",
+            "${productModel.price}",
             style: Styles.text22SemiBold,
           )
         ],
