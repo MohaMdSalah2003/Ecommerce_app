@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:ecommerce_app/features/Cart/presentation/views/cart_view.dart';
 import 'package:ecommerce_app/features/Favorites/Data/repo/favorites_repo._imp.dart';
 import 'package:ecommerce_app/features/Favorites/Data/repo/favorites_repo.dart';
@@ -5,6 +6,7 @@ import 'package:ecommerce_app/features/Favorites/presentation/manager/cubit/favo
 import 'package:ecommerce_app/features/Favorites/presentation/view/favorites_view.dart';
 import 'package:ecommerce_app/features/Home/data/repo/home_repoimp.dart';
 import 'package:ecommerce_app/features/Home/presentation/manager/cubit/products_categories_cubit.dart';
+import 'package:ecommerce_app/features/Home/presentation/manager/cubit/theme_cubit.dart';
 import 'package:ecommerce_app/features/Home/presentation/manager/getcategoriescubit/cubit/all_categories_cubit.dart';
 import 'package:ecommerce_app/features/Home/presentation/view/drawer_view.dart';
 import 'package:ecommerce_app/features/Home/presentation/view/widget/custom_menu_appbar.dart';
@@ -30,6 +32,7 @@ class _HomeViewState extends State<HomeView> {
     const FavoritesView(),
     const CartView()
   ];
+  List<String> titles = [" ", "Favourite", "Cart"];
   int index = 0;
   @override
   Widget build(BuildContext context) {
@@ -45,23 +48,34 @@ class _HomeViewState extends State<HomeView> {
         ),
         BlocProvider(
           create: (context) => FavoriteCubit(FavoritesRepoImp()),
+        ),
+        BlocProvider(
+          create: (context) => ThemeCubit(),
         )
       ],
       child: Scaffold(
         extendBody: true,
         key: scaffoldState,
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
+          scrolledUnderElevation: 0,
+          elevation: 0.0,
+          centerTitle: true,
+          title: Text(
+            titles[index],
+            style: Styles.text45RegularSacramento
+                .copyWith(color: const Color(0xff9775FA)),
+          ),
+
           leading: CustomMenuAppBar(scaffoldState: scaffoldState),
-          actions: [
-            Padding(
-                padding: const EdgeInsets.only(right: 20),
-                child: GestureDetector(
-                    onTap: () {
-                      Get.to(const ReviewsView());
-                    },
-                    child: SvgPicture.asset('assets/images/Cart.svg')))
-          ],
+          // actions: [
+          //   Padding(
+          //       padding: const EdgeInsets.only(right: 20),
+          //       child: GestureDetector(
+          //           onTap: () {
+          //             Get.to(const ReviewsView());
+          //           },
+          //           child: SvgPicture.asset('assets/images/Cart.svg')))
+          // ],
         ),
         bottomNavigationBar: CustomBottomnavigationBarItems(
           index: index,

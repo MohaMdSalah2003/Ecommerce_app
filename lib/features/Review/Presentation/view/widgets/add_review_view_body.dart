@@ -22,7 +22,7 @@ class AddReviewViewBody extends StatelessWidget {
           SliverToBoxAdapter(
               child: CustomTextField(
             hintText: 'Type your name',
-            fillColor: kSecondColor.withOpacity(.2),
+            fillColor: colors.kSecondColor.withOpacity(.2),
           )),
           const SliverToBoxAdapter(
               child: SizedBox(
@@ -36,7 +36,7 @@ class AddReviewViewBody extends StatelessWidget {
           SliverToBoxAdapter(
               child: CustomTextField(
             hintText: 'Describe  your experience ?',
-            fillColor: kSecondColor.withOpacity(.2),
+            fillColor: colors.kSecondColor.withOpacity(.2),
             maxLines: 12,
           )),
           const SliverToBoxAdapter(
@@ -48,7 +48,7 @@ class AddReviewViewBody extends StatelessWidget {
             value: 4.6,
             max: 5,
             divisions: 10,
-            activeColor: kMainColor,
+            activeColor: colors.kMainColor,
             onChanged: (value) {},
           )),
           // const Spacer(),

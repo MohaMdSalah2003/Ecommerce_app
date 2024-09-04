@@ -75,7 +75,7 @@ class CustomGridViewItem extends StatelessWidget {
             child: GestureDetector(
               onTap: icoOntap,
               child: Container(
-                decoration: const BoxDecoration(color: kSecondColor),
+                decoration: const BoxDecoration(color: colors.kSecondColor),
                 child: favorite
                     ? const Icon(Icons.cancel)
                     : SvgPicture.asset('assets/images/Heart.svg'),

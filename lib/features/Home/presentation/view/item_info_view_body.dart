@@ -21,7 +21,7 @@ class _ItemInfoViewBodyState extends State<ItemInfoViewBody> {
       child: Column(
         children: [
           Container(
-            color: Colors.red,
+            color: Colors.transparent,
             width: double.infinity,
             height: 395,
             child: Image(

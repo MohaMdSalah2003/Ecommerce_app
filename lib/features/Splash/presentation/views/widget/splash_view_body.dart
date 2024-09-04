@@ -16,7 +16,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 4), () {
-      Get.to(
+      Get.off(
         () => const HomeView(),
         transition: Transition.rightToLeft,
       );

@@ -44,7 +44,7 @@ class CustomReviewItem extends StatelessWidget {
         Text(
           'Lorem ipsum dolor sit amet,consectetur\n adipiscing elit. Pellentesque malesuada eget\n vitae amet...',
           style: Styles.text15Medium.copyWith(
-            color: kSecondColor,
+            color: colors.kSecondColor,
             overflow: TextOverflow.ellipsis,
           ),
           maxLines: 3,
