@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 class CustomDrawerItem extends StatelessWidget {
   const CustomDrawerItem({
@@ -20,7 +21,9 @@ class CustomDrawerItem extends StatelessWidget {
         title,
         style: style,
       ),
-      leading: SvgPicture.asset(assetName),
+      leading: SvgPicture.asset(
+        assetName,
+      ),
       onTap: onTap,
     );
   }

@@ -6,6 +6,18 @@ class FavoritesViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomFavoirteGridView();
+    return const Padding(
+      padding: EdgeInsets.only(top: 10.0, left: 15, right: 15),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text("365 Items In Favourite"),
+          SizedBox(
+            height: 5,
+          ),
+          CustomFavoirteGridView(),
+        ],
+      ),
+    );
   }
 }
