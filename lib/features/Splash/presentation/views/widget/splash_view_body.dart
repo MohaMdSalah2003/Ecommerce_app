@@ -15,9 +15,9 @@ class SplashViewBody extends StatefulWidget {
 class _SplashViewBodyState extends State<SplashViewBody> {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 4), () {
+    Future.delayed(const Duration(seconds: 7), () {
       Get.off(
-        () => const HomeView(),
+        () => const LoginView(),
         transition: Transition.rightToLeft,
       );
     });

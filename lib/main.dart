@@ -65,7 +65,7 @@ class _EcommerceState extends State<Ecommerce> {
             debugShowCheckedModeBanner: false,
             darkTheme: themes.darktheme,
             themeMode: ThemeMode.light,
-            home: const HomeView(),
+            home: const SplashView(),
           );
         }));
   }

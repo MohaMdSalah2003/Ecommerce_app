@@ -20,7 +20,7 @@ class CustomEmailTextField extends StatelessWidget {
           textAlign: TextAlign.start,
         ),
       ),
-      const CustomTextField(
+      CustomTextField(
         hintText: 'Enter your email',
       )
     ]);

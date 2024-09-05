@@ -8,8 +8,8 @@ class AllProductsViewBody extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
       child: CustomScrollView(slivers: [
         SliverToBoxAdapter(
           child: CustomTextField(
@@ -17,12 +17,12 @@ class AllProductsViewBody extends StatelessWidget {
             hintText: 'Search...',
           ),
         ),
-        SliverToBoxAdapter(
+        const SliverToBoxAdapter(
           child: SizedBox(
             height: 10,
           ),
         ),
-        CustomProductsSliverGridView()
+        const CustomProductsSliverGridView()
       ]),
     );
   }
