@@ -44,29 +44,29 @@ class AuthCubitCubit extends Cubit<AuthCubitState> {
     }
   }
 
-  Future<void> signInWithGoogle() async {
-    emit(AuthLoading());
-    var result = await authRepo.signInWithGoogle();
-    result.fold(
-      (messagEerror) {
-        emit(SignInGoogleFauiler(messagEerror: messagEerror));
-      },
-      (r) {
-        emit(SignInGoogleSuccess());
-      },
-    );
-  }
+  // Future<void> signInWithGoogle() async {
+  //   emit(AuthLoading());
+  //   var result = await authRepo.signInWithGoogle();
+  //   result.fold(
+  //     (messagEerror) {
+  //       emit(SignInGoogleFauiler(messagEerror: messagEerror));
+  //     },
+  //     (r) {
+  //       emit(SignInGoogleSuccess());
+  //     },
+  //   );
+  // }
 
-  Future<void> signInWithFacebook() async {
-    emit(AuthLoading());
-    var result = await authRepo.signInWithFacebook();
-    result.fold(
-      (messagEerror) {
-        emit(SignInFacebookFauiler(messagEerror: messagEerror));
-      },
-      (r) {
-        emit(SignInFacebookSuccess());
-      },
-    );
-  }
+  // Future<void> signInWithFacebook() async {
+  //   emit(AuthLoading());
+  //   var result = await authRepo.signInWithFacebook();
+  //   result.fold(
+  //     (messagEerror) {
+  //       emit(SignInFacebookFauiler(messagEerror: messagEerror));
+  //     },
+  //     (r) {
+  //       emit(SignInFacebookSuccess());
+  //     },
+  //   );
+  // }
 }

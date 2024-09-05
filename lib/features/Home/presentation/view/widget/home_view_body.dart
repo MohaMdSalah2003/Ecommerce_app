@@ -36,7 +36,7 @@ class HomeViewBody extends StatelessWidget {
           const SizedBox(height: 20),
           Row(
             children: [
-              const Expanded(
+              Expanded(
                 child: CustomTextField(
                   icon: Icons.search,
                   hintText: 'Search...',
