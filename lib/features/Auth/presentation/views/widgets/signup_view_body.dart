@@ -129,6 +129,8 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 height: 15,
               ),
               CustomBlocConsumerSign(
+                address: addressController!.text,
+                userName: usernameController!.text,
                 formKey: formKey,
                 email: emailController!.text,
                 password: passwordController!.text,

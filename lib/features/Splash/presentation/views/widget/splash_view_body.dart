@@ -17,7 +17,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   void initState() {
     Future.delayed(const Duration(seconds: 4), () {
       Get.to(
-        () => const HomeView(),
+        () => const LoginView(),
         transition: Transition.rightToLeft,
       );
     });
@@ -37,7 +37,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
           )
               .animate()
               .scale(
-                duration: const Duration(seconds: 3),
+                duration: const Duration(seconds: 4),
               )
               .then()
               .shake(),

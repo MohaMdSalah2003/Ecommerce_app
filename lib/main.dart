@@ -2,7 +2,9 @@ import 'package:ecommerce_app/core/utils/bloc_observ.dart';
 import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:ecommerce_app/core/utils/themes.dart';
 import 'package:ecommerce_app/features/Auth/Data/repo/auth_repo_imp.dart';
+import 'package:ecommerce_app/features/Auth/Data/repo/user_repo_imp.dart';
 import 'package:ecommerce_app/features/Auth/presentation/manager/cubit/auth_cubit_cubit.dart';
+import 'package:ecommerce_app/features/Auth/presentation/manager/userCubit/cubit/user_cubit.dart';
 import 'package:ecommerce_app/features/Home/data/repo/home_repoimp.dart';
 import 'package:ecommerce_app/features/Home/presentation/manager/cubit/products_categories_cubit.dart';
 import 'package:ecommerce_app/features/Home/presentation/manager/getcategoriescubit/cubit/all_categories_cubit.dart';
@@ -32,6 +34,9 @@ class Ecommerce extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => AuthCubitCubit(AuthRepoImp()),
+        ),
+        BlocProvider(
+          create: (context) => UserCubit(UserRepoImp()),
         ),
       ],
       child: GetMaterialApp(

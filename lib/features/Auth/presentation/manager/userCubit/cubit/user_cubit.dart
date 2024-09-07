@@ -1,4 +1,3 @@
-import 'package:ecommerce_app/core/errors/failure.dart';
 import 'package:ecommerce_app/features/Auth/Data/models/user_model.dart';
 import 'package:ecommerce_app/features/Auth/Data/repo/user_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
