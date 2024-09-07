@@ -44,7 +44,7 @@ class Faceorgooglebutton extends StatelessWidget {
             ),
             CustomIconButton(
                 ontap: () {
-                  BlocProvider.of<AuthCubitCubit>(context).signInWithFacebook();
+                  // BlocProvider.of<AuthCubitCubit>(context).signInWithFacebook();
                 },
                 iconImage: "assets/images/Facebook.svg")
 

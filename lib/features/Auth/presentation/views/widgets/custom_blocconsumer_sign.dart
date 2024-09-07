@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:ecommerce_app/core/utils/Functions/Custom_snak_bar.dart';
 import 'package:ecommerce_app/core/widgets/custom_button.dart';
 import 'package:ecommerce_app/features/Auth/Data/models/user_model.dart';
@@ -9,17 +11,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 class CustomBlocConsumerSign extends StatefulWidget {
-  const CustomBlocConsumerSign({
+  CustomBlocConsumerSign({
     super.key,
-    required this.email,
-    required this.password,
+    required this.emailController,
+    required this.passwordController,
     required this.formKey,
-    required this.userName,
-    required this.address,
+   
   });
-  final String email, password, userName, address;
+  // final String email, password;
   final GlobalKey<FormState> formKey;
-
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   @override
   State<CustomBlocConsumerSign> createState() => _CustomBlocConsumerSignState();
 }
@@ -42,6 +44,8 @@ class _CustomBlocConsumerSignState extends State<CustomBlocConsumerSign> {
           isLoading: state is AuthLoading ? true : false,
           title: "Sign In",
           onTap: () {
+            log(widget.emailController.text, name: "email");
+            log(widget.passwordController.text, name: "password");
             if (widget.formKey.currentState!.validate()) {
               UserModel usermodel = UserModel(
                 name: widget.userName,
@@ -50,7 +54,8 @@ class _CustomBlocConsumerSignState extends State<CustomBlocConsumerSign> {
               );
               BlocProvider.of<UserCubit>(context).addUser(userModel: usermodel);
               BlocProvider.of<AuthCubitCubit>(context).createNewAccount(
-                  email: widget.email, password: widget.password);
+                  email: widget.emailController.text,
+                  password: widget.passwordController.text);
             }
           },
         );

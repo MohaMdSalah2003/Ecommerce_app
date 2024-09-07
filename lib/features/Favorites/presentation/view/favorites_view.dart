@@ -14,20 +14,22 @@ class FavoritesView extends StatelessWidget {
     return BlocProvider(
       create: (context) =>
           FavoriteCubit(FavoritesRepoImp())..getFavoriteProducts(),
-      child: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          leading: IconButton(
-              onPressed: () {
-                Get.back();
-              },
-              icon: const Icon(Icons.arrow_back)),
-          title: const Text(
-            '  Favorites  ',
-            style: Styles.text40RegularSacramento,
-          ),
-        ),
-        body: const FavoritesViewBody(),
+      child: const Scaffold(
+        // appBar: AppBar(
+        //   backgroundColor: Colors.white,
+        //   centerTitle: true,
+        //   leading: IconButton(
+        //       onPressed: () {
+        //         Get.back();
+        //       },
+        //       icon: const Icon(Icons.arrow_back)),
+        //   title: Text(
+        //     'Favorites',
+        //     style: Styles.text45RegularSacramento
+        //         .copyWith(color: const Color(0xff9775FA)),
+        //   ),
+        // ),
+        body: FavoritesViewBody(),
       ),
     );
   }

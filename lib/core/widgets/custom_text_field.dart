@@ -1,11 +1,12 @@
-import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
+import 'dart:developer';
+
 import 'package:ecommerce_app/core/utils/constants.dart';
 import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class CustomTextField extends StatelessWidget {
-  const CustomTextField(
+class CustomTextField extends StatefulWidget {
+  CustomTextField(
       {super.key,
       this.icon,
       required this.hintText,
@@ -13,50 +14,64 @@ class CustomTextField extends StatelessWidget {
       this.fillColor,
       this.maxLines,
       this.controller,
-      this.validate,
-      this.keyboardType});
+      this.validator_message,
+      this.keyboardType,
+      this.onchange});
   final IconData? icon;
   final String hintText;
   final String? labelText;
   final Color? fillColor;
   final int? maxLines;
+  final String? validator_message;
   final TextEditingController? controller;
-  final String Function(String?)? validate;
+
   final TextInputType? keyboardType;
+  void Function(String)? onchange;
+  @override
+  State<CustomTextField> createState() => _CustomTextFieldState();
+}
+
+class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      keyboardType: keyboardType,
-      validator: validate,
-      controller: controller,
-      maxLines: maxLines,
+      onChanged: widget.onchange,
+      keyboardType: widget.keyboardType,
+      validator: (value) {
+        if (value!.isEmpty) {
+          return widget.validator_message;
+        }
+        return null;
+      },
+      controller: widget.controller,
+      maxLines: widget.maxLines,
       decoration: InputDecoration(
         alignLabelWithHint: true,
         floatingLabelAlignment: FloatingLabelAlignment.start,
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        hintText: hintText,
+        hintText: widget.hintText,
         hintStyle: Styles.text13Regular,
-        labelText: labelText,
+        labelText: widget.labelText,
         labelStyle: Styles.text15Medium,
-        fillColor: fillColor ?? const Color(0xFF9775FA).withOpacity(.3),
+        fillColor: widget.fillColor ?? const Color(0xFF9775FA).withOpacity(.3),
         filled: true,
-        prefixIcon: Icon(icon),
+        prefixIcon: Icon(widget.icon),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
           borderSide: const BorderSide(
-            color: kSecondColor,
+            color: colors.kSecondColor,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
           borderSide: const BorderSide(
-            color: kSecondColor,
+            color: colors.kSecondColor,
           ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
           borderSide: const BorderSide(
-            color: kSecondColor,
+            color: colors.kSecondColor,
           ),
         ),
       ),

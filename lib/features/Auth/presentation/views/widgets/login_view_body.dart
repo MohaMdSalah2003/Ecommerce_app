@@ -22,12 +22,10 @@ class _LoginViewBodyState extends State<LoginViewBody> {
   final _controller = ValueNotifier<bool>(false);
 
   bool _checked = false;
-  TextEditingController? emailController;
-  TextEditingController? passwordController;
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   @override
   void initState() {
-    emailController = TextEditingController();
-    passwordController = TextEditingController();
     super.initState();
 
     _controller.addListener(() {
@@ -63,6 +61,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 height: 100,
               ),
               CustomTextField(
+                validator_message: "please Enter your Email Correctly",
                 keyboardType: TextInputType.emailAddress,
                 hintText: "Please Enter your Email",
                 labelText: "Email",
@@ -72,6 +71,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 height: 40,
               ),
               CustomTextField(
+                validator_message: "please Enter your password",
                 keyboardType: TextInputType.visiblePassword,
                 hintText: "Please Enter your Password",
                 labelText: "Password",
@@ -111,8 +111,8 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 height: 25,
               ),
               CustomBlocConsumerLogin(
-                email: emailController!.text,
-                password: passwordController!.text,
+                emailController: emailController,
+                passwordController: passwordController,
                 formKey: formKey,
               ),
               const SizedBox(

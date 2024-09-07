@@ -7,13 +7,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 class CustomBlocConsumerLogin extends StatefulWidget {
-  const CustomBlocConsumerLogin({
+  CustomBlocConsumerLogin({
     super.key,
-    required this.email,
-    required this.password,
+    required this.emailController,
+    required this.passwordController,
     required this.formKey,
   });
-  final String email, password;
+  // final String email, password;
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> formKey;
 
   @override
@@ -40,8 +42,9 @@ class _CustomBlocConsumerLoginState extends State<CustomBlocConsumerLogin> {
           title: "Login",
           onTap: () {
             if (widget.formKey.currentState!.validate()) {
-              BlocProvider.of<AuthCubitCubit>(context)
-                  .signIN(email: widget.email, password: widget.password);
+              BlocProvider.of<AuthCubitCubit>(context).signIN(
+                  email: widget.emailController.text,
+                  password: widget.passwordController.text);
             }
           },
         );

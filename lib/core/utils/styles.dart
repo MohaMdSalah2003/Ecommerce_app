@@ -36,8 +36,8 @@ abstract class Styles {
     fontSize: 15,
     fontWeight: FontWeight.w400,
   );
-  static const text40RegularSacramento = TextStyle(
-      fontSize: 40, fontWeight: FontWeight.w400, fontFamily: "Sacramento");
+  static const text45RegularSacramento = TextStyle(
+      fontSize: 45, fontWeight: FontWeight.w400, fontFamily: "Sacramento");
   static const text60RegularSacramento = TextStyle(
       fontSize: 60, fontWeight: FontWeight.w400, fontFamily: "Sacramento");
   static const text50RegularFiraSan = TextStyle(

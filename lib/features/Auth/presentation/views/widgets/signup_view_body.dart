@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:ecommerce_app/core/utils/styles.dart';
 
 import 'package:ecommerce_app/core/widgets/custom_text_field.dart';
@@ -19,16 +21,12 @@ class _SignupViewBodyState extends State<SignupViewBody> {
   final _controller = ValueNotifier<bool>(false);
 
   bool _checked = false;
-  TextEditingController? usernameController;
-  TextEditingController? emailController;
-  TextEditingController? passwordController;
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   TextEditingController? addressController;
   @override
   void initState() {
-    usernameController = TextEditingController();
-    addressController = TextEditingController();
-    emailController = TextEditingController();
-    passwordController = TextEditingController();
     super.initState();
 
     _controller.addListener(() {
@@ -60,6 +58,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 height: 152,
               ),
               CustomTextField(
+                validator_message: "please write your name",
                 keyboardType: TextInputType.name,
                 controller: usernameController,
                 hintText: "Please Enter your username",
@@ -69,12 +68,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 height: 20,
               ),
               CustomTextField(
-                keyboardType: TextInputType.streetAddress,
-                controller: addressController,
-                hintText: "Please Enter your address",
-                labelText: "Address",
-              ),
-              CustomTextField(
+                validator_message: "please write your password",
                 keyboardType: TextInputType.visiblePassword,
                 controller: passwordController,
                 hintText: "Please Enter your password",
@@ -84,6 +78,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 height: 20,
               ),
               CustomTextField(
+                validator_message: "please write your emai",
                 keyboardType: TextInputType.emailAddress,
                 controller: emailController,
                 hintText: "Please Enter your Email",
@@ -129,11 +124,9 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 height: 15,
               ),
               CustomBlocConsumerSign(
-                address: addressController!.text,
-                userName: usernameController!.text,
                 formKey: formKey,
-                email: emailController!.text,
-                password: passwordController!.text,
+                emailController: emailController,
+                passwordController: passwordController,
               ),
               const SizedBox(
                 height: 20,

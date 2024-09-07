@@ -22,6 +22,7 @@ class AllProductsView extends StatelessWidget {
       ],
       child: Scaffold(
           appBar: AppBar(
+            elevation: 6,
             centerTitle: true,
             leading: IconButton(
                 onPressed: () {
@@ -30,7 +31,7 @@ class AllProductsView extends StatelessWidget {
                 icon: const Icon(Icons.arrow_back)),
             title: const Text(
               'All Products ',
-              style: Styles.text40RegularSacramento,
+              style: Styles.text45RegularSacramento,
             ),
           ),
           body: const AllProductsViewBody()),

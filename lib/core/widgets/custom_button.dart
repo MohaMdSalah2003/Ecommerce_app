@@ -2,7 +2,7 @@ import 'package:ecommerce_app/core/utils/constants.dart';
 import 'package:ecommerce_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
-class CustomButton extends StatelessWidget {
+class CustomButton extends StatefulWidget {
   const CustomButton({
     super.key,
     this.onTap,
@@ -12,24 +12,30 @@ class CustomButton extends StatelessWidget {
   final void Function()? onTap;
   final String title;
   final bool isLoading;
+
+  @override
+  State<CustomButton> createState() => _CustomButtonState();
+}
+
+class _CustomButtonState extends State<CustomButton> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: widget.onTap,
       child: Container(
         width: 300,
         height: 67,
         decoration: ShapeDecoration(
-          color: kMainColor,
+          color: colors.kMainColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(23),
           ),
         ),
         child: Center(
-          child: isLoading
+          child: widget.isLoading
               ? const CircularProgressIndicator()
               : Text(
-                  title,
+                  widget.title,
                   textAlign: TextAlign.center,
                   style: Styles.text17Medium.copyWith(
                     color: const Color(0xFFFFF9FF),
