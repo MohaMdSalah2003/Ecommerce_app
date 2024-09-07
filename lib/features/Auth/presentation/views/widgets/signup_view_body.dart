@@ -22,9 +22,11 @@ class _SignupViewBodyState extends State<SignupViewBody> {
   TextEditingController? usernameController;
   TextEditingController? emailController;
   TextEditingController? passwordController;
+  TextEditingController? addressController;
   @override
   void initState() {
     usernameController = TextEditingController();
+    addressController = TextEditingController();
     emailController = TextEditingController();
     passwordController = TextEditingController();
     super.initState();
@@ -65,6 +67,12 @@ class _SignupViewBodyState extends State<SignupViewBody> {
               ),
               const SizedBox(
                 height: 20,
+              ),
+              CustomTextField(
+                keyboardType: TextInputType.streetAddress,
+                controller: addressController,
+                hintText: "Please Enter your address",
+                labelText: "Address",
               ),
               CustomTextField(
                 keyboardType: TextInputType.visiblePassword,
